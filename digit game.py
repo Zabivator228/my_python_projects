@@ -3,17 +3,16 @@
 import random # импортируем модуль random для генерации случайных чисел
 
 def is_valid(n): # функция проверки валидности числа
-    if 1 <= n <= granica:
-        return True
-    else:
-        return False
-    
+    return 1 <= n <= granica
 
 print('Добро пожаловать в числовую угадайку!') 
 print('В каком диапазоне вы хотите угадать число? Введите правую границу диапазона (например 100)')
 granica = int(input())
 right_num = random.randint(1, granica)
 attempts = 0 # переменная попыток, которая увеличивается при каждой неудачной попытке
+print('Какое количество попыток ты хочешь себе? Если попытки кончатся - ты проиграешь')
+max_attempts = int(input())
+
 while True: # основной цикл игры
     print(f'Введите число от 1 до {granica} включительно.')
     user_num = int(input())
@@ -21,11 +20,11 @@ while True: # основной цикл игры
         print(f'А может быть все-таки введем целое число от 1 до {granica}?')
         continue
     if user_num < right_num: # здесь и ниже, проверки, как введённое число относится к правильному
-        print('Ваше число меньше загаданного, попробуйте еще разок')
+        print(f'Ваше число меньше загаданного, попробуйте еще разок. Осталось попыток: {max_attempts - attempts}')
         attempts += 1
         continue
     elif user_num > right_num:
-        print('Ваше число больше загаданного, попробуйте еще разок')
+        print(f'Ваше число больше загаданного, попробуйте еще разок. Осталось попыток: {max_attempts - attempts}')
         attempts += 1
         continue
     elif user_num == right_num:
@@ -44,5 +43,15 @@ while True: # основной цикл игры
             print('Какой диапазон хочешь на этот раз?')
             granica = int(input())
             right_num = random.randint(1, granica)
+            print('Какое количество попыток ты хочешь себе? Если попытки кончатся - ты проиграешь')
+            max_attempts = int(input())
             attempts = 0
             continue
+
+
+        
+
+
+            
+            
+
