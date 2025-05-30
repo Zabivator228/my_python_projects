@@ -1,16 +1,16 @@
 import random
 
-def is_valid(n, granica):
+def is_valid(n, granica): # функция валидности числа
     return 1 <= n <= granica
 
-def play_again():
+def play_again(): # функция повтора игры
     while True:
         povtor = input('Будем играть ещё? (Да/Нет)').lower()
         if povtor in ('да', 'нет'):
             return povtor == 'да'
         print('Не понял вас. Да, или нет?')   
 
-def game_loop():
+def game_loop(): 
     print('Добро пожаловать в числовую угадайку!')
 
     while True:  # Основной цикл игры
@@ -51,5 +51,6 @@ def game_loop():
             if not play_again():
                 print('Спасибо, что играли в числовую угадайку. Ещё увидимся...')
                 return
-        
+            continue
+
 game_loop()
